@@ -1,0 +1,14 @@
+<launch>
+
+	<arg name="table" default="false" />
+	<arg name="gripper_2f" default="false" />
+	<arg name="gripper_3f" default="false" />
+	<arg name="camera" default="false" />
+
+	<param name="robot_description" command="$(find xacro)/xacro --inorder $(find cobot_description)/urdf/cobot_main.xacro"/>
+	
+	<node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui"/>
+	<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find indy7_description)/rviz_config/default.rviz"/>
+	
+</launch>

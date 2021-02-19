@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<robot name="cobot" xmlns:xacro="http://ros.org/wiki/xacro">
+ 
+  <xacro:include filename="$(find cobot_description)/urdf/table.xacro"/>
+
+  <xacro:include filename="$(find cobot_description)/urdf/indy7_gripper2f.xacro"/>
+
+  <xacro:include filename="$(find cobot_description)/urdf/abb_gripper3f.xacro"/>  
+
+</robot>
