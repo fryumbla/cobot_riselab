@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<launch>
+
+    <!-- ABB -->
+    <arg name="irb120_robot_ip" default="192.168.125.1" />
+
+    <!-- Indy7 -->
+    <arg name="Indy7_robot_ip" default="10.201.159.232" />
+    <arg name="Indy7_robot_name" default="NRMK-Indy7" />
+
+
+    <!-- <rosparam command="load" file="$(find indy7_description)/config/joint_names.yaml" /> -->
+
+  <!-- <group ns="irb120">
+
+    <rosparam command="load" file="$(find irb120_description)/config/joint_names_irb120.yaml" />
+
+    <include file="$(find irb120_description)/launch/robot_interface.launch">
+        <arg name="robot_ip" value="$(arg irb120_robot_ip)"/>
+    </include>
+
+    <include file="$(find irb120_description)/launch/real_irb120_moveit.launch" />
+
+  </group> -->
+
+  <!-- <group ns="Indy7">
+
+    <rosparam command="load" file="$(find indy7_description)/config/joint_names.yaml" />
+
+    <include file="$(find indy_driver_py)/launch/dcp.launch" >
+      <arg name="robot_ip" value="$(arg Indy7_robot_ip)"/>
+      <arg name="robot_name" value="$(arg Indy7_robot_name)"/>
+    </include>    
+
+    <include file="$(find indy7_description)/launch/real_indy7_moveit.launch" />
+
+    <node pkg="industrial_robot_client" type="joint_trajectory_action" name="joint_trajectory_action"/>
+
+
+
+  </group> -->
+  <group ns="cobot">
+  <!-- <node name="rviz" pkg="rviz" type="rviz" args="-d $(find cobot_moveit_configuration)/launch/moveit.rviz"/> -->
+
+
+  <include file="$(find cobot_description)/launch/real_cobot.launch" />
+  </group>
+
+</launch>

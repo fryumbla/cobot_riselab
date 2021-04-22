@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<launch>
+
+    <!-- ABB -->
+    <arg name="irb120_robot_ip" default="192.168.125.1" />
+
+    <rosparam command="load" file="$(find irb120_description)/config/joint_names_irb120.yaml" />
+
+    <include file="$(find irb120_description)/launch/robot_interface.launch">
+        <arg name="robot_ip" value="$(arg irb120_robot_ip)"/>
+    </include>
+
+    <include file="$(find cobot_description)/launch/real_cobotabb_moveit.launch" />
+
+</launch>

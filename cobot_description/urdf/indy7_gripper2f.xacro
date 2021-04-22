@@ -35,7 +35,7 @@
     <inertial>
       <origin
         xyz="0 0 0"
-        rpy="1.570796327 0 0" />
+        rpy="0 0 0" />
       <mass
         value="0.30915" />
       <inertia
@@ -48,21 +48,21 @@
     </inertial>
     <visual>
       <origin
-        xyz="0 0 0"
-        rpy="1.570796327 0 0.523598" />
+        xyz="-0.045 -0.045 -0.022"
+        rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://indy7_description/meshes/supports/support_gripper.stl" />
+          filename="package://indy7_description/meshes/supports/indy7_to_irb120_TCP.stl" />
       </geometry>
       <material name="green"/>
     </visual>
     <collision>
       <origin
-        xyz="0 0 0"
-        rpy="1.570796327 0 0.523598" /> 
+        xyz="-0.045 -0.045 -0.022"
+        rpy="0 0 0" /> 
       <geometry>
         <mesh
-          filename="package://indy7_description/meshes/supports/support_gripper.stl" />
+          filename="package://indy7_description/meshes/supports/indy7_to_irb120_TCP.stl" />
       </geometry>
     </collision>
   </link>
@@ -70,23 +70,23 @@
   <joint name="indy7_joint_tcp" type="fixed">
     <parent link="tcp"/>
     <child link="support_gripper_link"/>
-    <origin rpy="0 0 0" xyz="0 0 0.008"/>
+    <origin rpy="0 0 0" xyz="0 0 0.02"/>
   </joint>
   
   <joint name="indy7_support_gripper" type="fixed">
     <parent link="support_gripper_link"/>
     <child link="coupling_link"/>
-    <origin rpy="0 0 ${PI/2}" xyz="0 0 0"/>
+    <origin rpy="0 0 ${PI/2}" xyz="0 0 -0.003"/>
   </joint>
 
   <!-- end effect point -->
-  <joint name="end_effect_point" type="fixed">
-    <origin rpy="0 0 0" xyz="0 0 0.17"/>
+  <joint name="end_eff_point_2f" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0 0.23"/>
     <parent link="tcp"/>
-    <child link="end_effect_point"/>
+    <child link="end_eff_point_2f"/>
   </joint>
   <!-- end effect point -->
-  <link name="end_effect_point">
+  <link name="end_eff_point_2f">
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>

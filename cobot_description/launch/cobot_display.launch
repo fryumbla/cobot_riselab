@@ -6,6 +6,8 @@
 	<arg name="camera" default="false" />
 
 	<param name="robot_description" command="$(find xacro)/xacro --inorder $(find cobot_description)/urdf/cobot_main.xacro"/>
+
+	<!-- <rosparam command="load" file="$(find cobot_description)/config/cobot_motion_interface.yaml" /> -->
 	
 	<node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui"/>
 	<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>

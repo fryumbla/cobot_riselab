@@ -1,0 +1,43 @@
+controller_list:
+  - name: fake_indy7_controller
+    joints:
+      - joint0
+      - joint1
+      - joint2
+      - joint3
+      - joint4
+      - joint5
+  - name: fake_irb120_controller
+    joints:
+      - joint_1
+      - joint_2
+      - joint_3
+      - joint_4
+      - joint_5
+      - joint_6
+  - name: fake_dual_arm_controller
+    joints:
+      - joint_1
+      - joint_2
+      - joint_3
+      - joint_4
+      - joint_5
+      - joint_6
+      - joint0
+      - joint1
+      - joint2
+      - joint3
+      - joint4
+      - joint5
+  - name: fake_paraller_gripper_controller
+    joints:
+      - finger_joint
+initial:  # Define initial robot poses.
+  - group: indy7
+    pose: zero_pos
+  - group: irb120
+    pose: zero_pos
+  - group: dual_arm
+    pose: zero_pos
+  - group: paraller_gripper
+    pose: ini_pos

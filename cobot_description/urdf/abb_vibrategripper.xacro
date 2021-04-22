@@ -5,20 +5,11 @@
   <xacro:include filename="$(find irb120_description)/urdf/irb120.xacro"/>
   <xacro:abb_irb120 prefix=""/>
 
-
-
-
-
-  <xacro:include filename="$(find robotiq_3f_description)/urdf/robotiq-3f-gripper_articulated.xacro"  />
-
-	<xacro:property name="PI" value="3.1415926535897931"/>
-
- <!-- verificar angulo de support_gripper -->
-  <link name="gripper_support_link">
+  <link name="vibration_gripper">
     <inertial>
       <origin
         xyz="0 0 0"
-        rpy="1.570796327 0 0" />
+        rpy="0 0 0" />
       <mass
         value="0.30915" />
       <inertia
@@ -31,45 +22,39 @@
     </inertial>
     <visual>
       <origin
-        xyz="0 0 0"
-        rpy="1.570796327 0 0.523598" />
+        xyz="0.0695 -0.031 0"
+        rpy="-1.570796327 0 1.570796327" />
       <geometry>
         <mesh
-          filename="package://irb120_description/meshes/supports/support_gripper.stl" />
+          filename="package://cobot_description/meshes/GRIPER_BELTm.stl" />
       </geometry>
       <material name="green"/>
     </visual>
     <collision>
       <origin
-        xyz="0 0 0"
-        rpy="1.570796327 0 0.523598" /> 
+        xyz="0.0695 -0.031 0"
+        rpy="-1.570796327 0 1.570796327" />
       <geometry>
         <mesh
-          filename="package://irb120_description/meshes/supports/support_gripper.stl" />
+          filename="package://cobot_description/meshes/GRIPER_BELTm.stl" />
       </geometry>
     </collision>
   </link>
-
-  <joint name="irb120_joint_gripper_support" type="fixed">
-    <parent link="tool0"/>
-    <child link="gripper_support_link"/>
-    <origin rpy="0 0 0" xyz="0 0 0.008"/>
-  </joint>
   
-  <joint name="irb120_support_gripper" type="fixed">
-    <parent link="gripper_support_link"/>
-    <child link="palm"/>
-    <origin rpy="${PI/2} 0 0" xyz="0 0 0.05"/>
+  <joint name="gripper" type="fixed">
+    <parent link="tool0"/>
+    <child link="vibration_gripper"/>
+    <origin rpy="0 0 0" xyz="0 0 0.1908"/>s
   </joint>
 
   <!-- end effect point -->
-  <joint name="end_effect_point3f" type="fixed">
-    <origin rpy="0 0 0" xyz="0 0 0.15"/>
-    <parent link="gripper_support_link"/>
-    <child link="end_effect_point3f"/>
+  <joint name="end_eff_point_vibrationgripper" type="fixed">
+    <origin rpy="0 0 0" xyz="-0.12 0.025 0.172"/>
+    <parent link="tool0"/>
+    <child link="end_eff_point_vibrationgripper"/>
   </joint>
   <!-- end effect point -->
-  <link name="end_effect_point3f">
+  <link name="end_eff_point_vibrationgripper">
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
