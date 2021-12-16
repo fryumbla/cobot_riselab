@@ -1,0 +1,113 @@
+digraph G {
+node [shape=box];
+"world" [label="world"];
+"table" [label="table"];
+"base_link" [label="base_link"];
+"link_1" [label="link_1"];
+"link_2" [label="link_2"];
+"link_3" [label="link_3"];
+"link_4" [label="link_4"];
+"link_5" [label="link_5"];
+"link_6" [label="link_6"];
+"flange" [label="flange"];
+"tool0" [label="tool0"];
+"end_eff_point_vibrationgripper" [label="end_eff_point_vibrationgripper"];
+"vibration_gripper" [label="vibration_gripper"];
+"support_indy7" [label="support_indy7"];
+"ground" [label="ground"];
+"link0" [label="link0"];
+"link1" [label="link1"];
+"link2" [label="link2"];
+"link3" [label="link3"];
+"link4" [label="link4"];
+"link5" [label="link5"];
+"link6" [label="link6"];
+"tcp" [label="tcp"];
+"end_eff_point_2f" [label="end_eff_point_2f"];
+"support_gripper_link" [label="support_gripper_link"];
+"coupling_link" [label="coupling_link"];
+"robotiq_arg2f_base_link" [label="robotiq_arg2f_base_link"];
+"left_outer_knuckle" [label="left_outer_knuckle"];
+"left_outer_finger" [label="left_outer_finger"];
+"left_inner_finger" [label="left_inner_finger"];
+"left_inner_finger_pad" [label="left_inner_finger_pad"];
+"left_inner_knuckle" [label="left_inner_knuckle"];
+"right_inner_knuckle" [label="right_inner_knuckle"];
+"right_outer_knuckle" [label="right_outer_knuckle"];
+"right_outer_finger" [label="right_outer_finger"];
+"right_inner_finger" [label="right_inner_finger"];
+"right_inner_finger_pad" [label="right_inner_finger_pad"];
+node [shape=ellipse, color=blue, fontcolor=blue];
+"world" -> "world" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"world" -> "table"
+"table" -> "abb" [label="xyz: 0.64 0 0 \nrpy: 0 -0 -3.14159"]
+"abb" -> "base_link"
+"base_link" -> "joint_1" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"joint_1" -> "link_1"
+"link_1" -> "joint_2" [label="xyz: 0 0 0.29 \nrpy: 0 -0 0"]
+"joint_2" -> "link_2"
+"link_2" -> "joint_3" [label="xyz: 0 0 0.27 \nrpy: 0 -0 0"]
+"joint_3" -> "link_3"
+"link_3" -> "joint_4" [label="xyz: 0 0 0.07 \nrpy: 0 -0 0"]
+"joint_4" -> "link_4"
+"link_4" -> "joint_5" [label="xyz: 0.302 0 0 \nrpy: 0 -0 0"]
+"joint_5" -> "link_5"
+"link_5" -> "joint_6" [label="xyz: 0.072 0 0 \nrpy: 0 -0 0"]
+"joint_6" -> "link_6"
+"link_6" -> "joint_6-flange" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"joint_6-flange" -> "flange"
+"flange" -> "link_6-tool0" [label="xyz: 0 0 0 \nrpy: 0 1.5708 -0"]
+"link_6-tool0" -> "tool0"
+"tool0" -> "end_eff_point_vibrationgripper" [label="xyz: -0.12 0.025 0.1855 \nrpy: 0 -0 0"]
+"end_eff_point_vibrationgripper" -> "end_eff_point_vibrationgripper"
+"tool0" -> "gripper" [label="xyz: 0 0 0.1908 \nrpy: 0 -0 0"]
+"gripper" -> "vibration_gripper"
+"table" -> "indy7" [label="xyz: -0.65 0.0125 0 \nrpy: 0 -0 0"]
+"indy7" -> "support_indy7"
+"support_indy7" -> "support_indy7" [label="xyz: 0 0 0.016 \nrpy: 0 -0 0"]
+"support_indy7" -> "ground"
+"ground" -> "global" [label="xyz: 0 0 0.047 \nrpy: 0 -0 0"]
+"global" -> "link0"
+"link0" -> "joint0" [label="xyz: 0 0 0.03 \nrpy: 0 -0 0"]
+"joint0" -> "link1"
+"link1" -> "joint1" [label="xyz: 0 -0.109 0.222 \nrpy: 0 1.5708 -1.5708"]
+"joint1" -> "link2"
+"link2" -> "joint2" [label="xyz: -0.45 0 -0.0305 \nrpy: 0 -0 0"]
+"joint2" -> "link3"
+"link3" -> "joint3" [label="xyz: -0.267 0 -0.075 \nrpy: -1.5708 5.55112e-17 1.5708"]
+"joint3" -> "link4"
+"link4" -> "joint4" [label="xyz: 0 -0.114 0.083 \nrpy: 0 1.5708 -1.5708"]
+"joint4" -> "link5"
+"link5" -> "joint5" [label="xyz: -0.168 0 0.069 \nrpy: -1.5708 5.55112e-17 1.5708"]
+"joint5" -> "link6"
+"link6" -> "tcp" [label="xyz: 0 0 0.06 \nrpy: 0 -0 0"]
+"tcp" -> "tcp"
+"tcp" -> "end_eff_point_2f" [label="xyz: 0 0 0.23 \nrpy: 0 -0 0"]
+"end_eff_point_2f" -> "end_eff_point_2f"
+"tcp" -> "indy7_joint_tcp" [label="xyz: 0 0 0.02 \nrpy: 0 -0 0"]
+"indy7_joint_tcp" -> "support_gripper_link"
+"support_gripper_link" -> "indy7_support_gripper" [label="xyz: 0 0 -0.003 \nrpy: 0 -0 1.5708"]
+"indy7_support_gripper" -> "coupling_link"
+"coupling_link" -> "coupling_joint" [label="xyz: 0 0 0.011 \nrpy: 0 -0 0"]
+"coupling_joint" -> "robotiq_arg2f_base_link"
+"robotiq_arg2f_base_link" -> "finger_joint" [label="xyz: 0 -0.0306011 0.054904 \nrpy: 0 -0 -3.14159"]
+"finger_joint" -> "left_outer_knuckle"
+"left_outer_knuckle" -> "left_outer_finger_joint" [label="xyz: 0 0.0315 -0.0041 \nrpy: 0 -0 0"]
+"left_outer_finger_joint" -> "left_outer_finger"
+"left_outer_finger" -> "left_inner_finger_joint" [label="xyz: 0 0.0061 0.0471 \nrpy: 0 -0 0"]
+"left_inner_finger_joint" -> "left_inner_finger"
+"left_inner_finger" -> "left_inner_finger_pad_joint" [label="xyz: 0 -0.0220203 0.03242 \nrpy: 0 -0 0"]
+"left_inner_finger_pad_joint" -> "left_inner_finger_pad"
+"robotiq_arg2f_base_link" -> "left_inner_knuckle_joint" [label="xyz: 0 -0.0127 0.06142 \nrpy: 0 -0 -3.14159"]
+"left_inner_knuckle_joint" -> "left_inner_knuckle"
+"robotiq_arg2f_base_link" -> "right_inner_knuckle_joint" [label="xyz: 0 0.0127 0.06142 \nrpy: 0 -0 0"]
+"right_inner_knuckle_joint" -> "right_inner_knuckle"
+"robotiq_arg2f_base_link" -> "right_outer_knuckle_joint" [label="xyz: 0 0.0306011 0.054904 \nrpy: 0 -0 0"]
+"right_outer_knuckle_joint" -> "right_outer_knuckle"
+"right_outer_knuckle" -> "right_outer_finger_joint" [label="xyz: 0 0.0315 -0.0041 \nrpy: 0 -0 0"]
+"right_outer_finger_joint" -> "right_outer_finger"
+"right_outer_finger" -> "right_inner_finger_joint" [label="xyz: 0 0.0061 0.0471 \nrpy: 0 -0 0"]
+"right_inner_finger_joint" -> "right_inner_finger"
+"right_inner_finger" -> "right_inner_finger_pad_joint" [label="xyz: 0 -0.0220203 0.03242 \nrpy: 0 -0 0"]
+"right_inner_finger_pad_joint" -> "right_inner_finger_pad"
+}

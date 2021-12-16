@@ -49,7 +49,9 @@
 
   <!-- end effect point -->
   <joint name="end_eff_point_vibrationgripper" type="fixed">
-    <origin rpy="0 0 0" xyz="-0.12 0.025 0.172"/>
+    <!-- <origin rpy="0 0 0" xyz="-0.12 0.025 0.172"/> -->
+    <origin rpy="0 0 0" xyz="-0.12 0.025 0.1855"/>
+    <!-- <origin rpy="0 0 0" xyz="-0.12 0.025 0.1855"/> -->
     <parent link="tool0"/>
     <child link="end_eff_point_vibrationgripper"/>
   </joint>
